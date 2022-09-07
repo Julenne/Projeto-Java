@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="DesafioJava:ear exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/DesafioJava_ear_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="DesafioJava/javaeeApplication/javaEEApplication" />
+    </root>
+  </artifact>
+</component>
