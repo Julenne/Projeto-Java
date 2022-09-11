@@ -15,9 +15,9 @@ import org.hibernate.service.ServiceRegistry;
 
 public class Conexao {
     private static SessionFactory sessao;
-    private static final String usuario = "postgres";
-    private static final String senha = "postgres";
-    private static final String url = "jdbc:postgresql://localhost:5432/desafiojava";
+    private static final String usuario = "USUARIO POSTGRES";
+    private static final String senha = "SENHA POSTGRES";
+    private static final String url = "jdbc:postgresql://localhost:PORTA/NOME_BANCO";
 
     public static SessionFactory getSessao(){
         if(sessao == null) {
