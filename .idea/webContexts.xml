@@ -5,6 +5,7 @@
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/AdicionarConserto.xhtml" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/index.xhtml" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/listar-conserto.xhtml" value="file://$PROJECT_DIR$/src/main/webapp" />
       </map>
     </option>
   </component>

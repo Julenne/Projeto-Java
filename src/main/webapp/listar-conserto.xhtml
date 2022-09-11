@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Listar Conserto</title>
+</h:head>
+<h:body>
+    <h1>Listar Consertos</h1>
+    <div class="card">
+        <h:form id="formTable">
+            <p:dataTable id="consertoTable" var="conserto" value="#{clienteConsertoBean.listAllConserto()}"
+                         scrollable="true" scrollHeight="250">
+                <p:column headerText="Cliente" footerText="Cliente">
+                    <h:outputText value="#{clienteConsertoBean.clienteConserto(conserto).nomeCliente.toString()}
+                                 #{clienteConsertoBean.clienteConserto(conserto).sobrenomeCliente.toString()}"/>
+                </p:column>
+                <p:column headerText="Conserto" footerText="Conserto">
+                    <h:outputText value="#{conserto.tipoConserto}"/>
+                </p:column>
+                <p:column headerText="Preço" footerText="Preço">
+                    <h:outputText value="#{conserto.preco}"/>
+                </p:column>
+                <p:column headerText="Atendimento" footerText="Atendimento">
+                    <h:outputText value="#{conserto.dataAtendimento}"/>
+                </p:column>
+                <p:column headerText="Entrega" footerText="Entrega">
+                    <h:outputText value="#{conserto.dataEntrega}"/>
+                </p:column>
+                <p:column headerText="Situação" footerText="Situação">
+                    <h:outputText value="#{conserto.situacao}"/>
+                </p:column>
+                <p:column headerText="" footerText="">
+                    <p:commandLink  update="consertoTable"
+                                    action="#{clienteConsertoBean.editarConsertoRota(conserto, clienteConsertoBean.clienteConserto(conserto))}"
+                                    value="Editar" styleClass="mr-4" />
+                </p:column>
+                <p:column headerText="" footerText="">
+                    <p:commandLink update="consertoTable" action="#{clienteConsertoBean.excluirConserto(conserto)}"
+                                   value="Excluir" styleClass="mr-4" />
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </div>
+</h:body>
+</html>

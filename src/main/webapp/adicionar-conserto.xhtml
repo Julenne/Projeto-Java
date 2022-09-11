@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:p="http://primefaces.org/ui"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Adicionar Conserto</title>
+</h:head>
+<h:body>
+    <h1>Adicionar Novo Conserto</h1>
+    <h2>Complete as informações a seguir para adicionar um conserto novo.</h2>
+    <h:form>
+            <label>Nome</label><br/>
+            <p:inputText id="nome" value="#{clienteConsertoBean.cliente.nomeCliente}"  /><br/><br/>
+
+            <label>Sobrenome</label><br/>
+            <p:inputText id="sobrenome" value="#{clienteConsertoBean.cliente.sobrenomeCliente}" /><br/><br/>
+
+            <label>Email</label><br/>
+            <p:inputText id="email" value="#{clienteConsertoBean.cliente.emailCliente}" /><br/><br/>
+
+            <label>Telefone</label><br/>
+            <p:inputMask id="telefone" value="#{clienteConsertoBean.cliente.telCliente}" mask="(99)99999-9999" /><br/><br/>
+
+            <label>Tipo de conserto</label><br/>
+            <p:inputText id="tipo-conserto" value="#{clienteConsertoBean.conserto.tipoConserto}" /><br/><br/>
+
+        <label>Data de Atendimento</label><br/>
+            <p:calendar id="data-atendimento" value="#{clienteConsertoBean.conserto.dataAtendimento}" mode="popup"/><br/><br/>
+
+            <label>Data de Entrega (Prevista)</label><br/>
+            <p:calendar id="data-entrega" value="#{clienteConsertoBean.conserto.dataEntrega}" mode="popup"/><br/><br/>
+
+            <label>Preço</label><br/>
+            <p:inputNumber id="preco" value="#{clienteConsertoBean.conserto.preco}" /><br/><br/>
+
+            <label>Observação</label><br/>
+            <p:inputTextarea id="observacao" value="#{clienteConsertoBean.conserto.observacao}" /><br/><br/>
+        <h:commandButton id="comandoCadastrar" value="Cadastrar" action="#{clienteConsertoBean.insertCliente()}" >
+        </h:commandButton>
+    </h:form>
+</h:body>
+
+</html>
