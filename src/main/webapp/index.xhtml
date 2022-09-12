@@ -6,18 +6,28 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-<head>
+<h:head>
     <title>Ateliê da Maria</title>
-</head>
-<body>
-<h1>Ateliê da Maria</h1>
-<h2>Este sistema lista, adiciona, exclui e atualiza um conserto.</h2>
-<h3>Escolha uma das opções abaixo para começar:</h3>
+    <link rel="stylesheet" href="resources/css/style.css" />
+</h:head>
+<h:body>
+<div class="center">
+    <img src="resources/logo.png" alt="" />
+</div>
+    <h:form>
+        <div class="center">
+            <h:panelGrid columns="2" >
+                <p:commandButton action="adicionar-conserto.xhtml" class="mr-4"
+                               styleClass="command-link"
+                               value="Adicionar Conserto"/>
+                <p:commandButton action="listar-conserto.xhtml" class="mr-4"
+                               styleClass="command-link"
+                               value="Mostrar Consertos"/>
+            </h:panelGrid>
+        </div>
+    </h:form>
 
-<input type="button" onclick="location.href='listar-conserto.xhtml';" value="Mostrar consertos" />
-<br/>
-<input type="button" onclick="location.href='adicionar-conserto.xhtml';" value="Adicionar consertos" />
 
 
-</body>
+</h:body>
 </html>

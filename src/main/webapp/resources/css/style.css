@@ -1,0 +1,20 @@
+.center {
+    display: flex;
+    justify-content: center;
+}
+img {
+    width: 30%;
+}
+.width{
+    width:100px;
+    height:100px;
+}
+.horizontal{
+    display: flex;
+}
+.command-link{
+    max-width: 400px;
+    font-weight: bold;
+    margin: 0 auto;
+    width: 500px;
+}
