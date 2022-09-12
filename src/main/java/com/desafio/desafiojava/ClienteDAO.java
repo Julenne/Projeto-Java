@@ -17,9 +17,6 @@ public class ClienteDAO {
             sessao.persist(cliente);
             transaction.commit();
         }catch (Exception e){
-            /*if(transaction != null){
-                transaction.rollback();
-            }*/
             e.printStackTrace();
         }
     }
@@ -66,12 +63,8 @@ public class ClienteDAO {
         try(Session sessao = Conexao.getSessao().openSession()){
             transaction = sessao.beginTransaction();
             cliente = sessao.get(Cliente.class, id);
-            System.out.println("pegando UM cliente: " + cliente);
             transaction.commit();
         }catch (Exception e){
-            /*if(transaction != null){
-                transaction.rollback();
-            }*/
             e.printStackTrace();
         }
         return cliente;

@@ -1,17 +1,11 @@
 package com.desafio.desafiojava;
 
+import com.desafio.validacao.ClienteValidacao;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,27 +24,41 @@ public class ClienteConsertoBean{
             clienteDAO.saveCliente(cliente);
             conserto.setIdCliente(cliente.getId());
 
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-
             consertoDAO.saveConserto(conserto);
-            //TODO: mudar de pagina quando acabar a inserção
+
+            conserto = new Conserto();
+            cliente = new Cliente();
         } catch (Exception e){
             e.printStackTrace();
         }
-        conserto = new Conserto();
-        cliente = new Cliente();
+
     }
     public List<Conserto> listAllConserto(){
         listConserto = consertoDAO.gettAllConserto();
 
         if(listConserto == null || listConserto.size()==0){
-            //mostrar alguma mensagem de erro
+            //mostrar alguma mensagem de erro(não consegui mostrar)
         }
         return listConserto;
     }
 
+    public String retornaSituacao(){
+        if(this.conserto.isSituacao()){
+            return "Concluido";
+        } else {
+            return "Não Concluído";
+        }
+    }
+
+    /*public void validarEmail(FacesContext context, UIComponent comp,
+                             Object value){
+            if(ClienteValidacao.validaEmail(cliente.getEmailCliente())){
+                ((UIInput) comp).setValid(false);
+                FacesMessage message = new FacesMessage("errado");
+                context.addMessage(comp.getClientId(context), message);
+            }
+    }*/
     public Cliente clienteConserto(Conserto conserto){
-        System.out.println("id do cliente: "+ conserto.getIdCliente());
         Cliente cliente1 = new Cliente();
         try{
 
@@ -81,19 +89,16 @@ public class ClienteConsertoBean{
         cliente = new Cliente();
     }
     public void excluirConserto(Conserto conserto){
-        System.out.println("ID CONSERTO: "+conserto.getIdConserto());
         try{
-
             consertoDAO.deleteConserto(conserto);
-
         }catch(Exception e){
             e.printStackTrace();
         }
         addMessage("Excluído com sucesso");
     }
 
-    public void addMessage(String summary) {
-        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, null);
+    public void addMessage(String summary) { // para mostrar os erros *não funcionou*
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, summary, null);
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
     public Cliente getCliente(){return cliente;}
