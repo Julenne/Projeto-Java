@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
@@ -10,35 +12,50 @@
 <h:body>
     <h1>Editar Conserto</h1>
     <h2>Altere as informações a seguir para editar um conserto existente.</h2>
-    <h:form >
-        <label>Nome</label><br/>
-        <p:inputText id="nome" value="#{clienteConsertoBean.cliente.nomeCliente}"  /><br/><br/>
+    <h:panelGrid>
+        <p:commandLink action="adicionar-conserto.xhtml" class="mr-4"
+                       value="Adicionar Conserto"/>
+        <p:commandLink action="listar-conserto.xhtml" class="mr-4"
+                       value="Mostrar Consertos"/>
+    </h:panelGrid>
 
-        <label>Sobrenome</label><br/>
-        <p:inputText id="sobrenome" value="#{clienteConsertoBean.cliente.sobrenomeCliente}" /><br/><br/>
+    <h:form>
+        <h:panelGrid columns="2" cellpadding="7">
+            <label>Nome</label>
+            <p:inputText id="nome" value="#{clienteConsertoBean.cliente.nomeCliente}"  /><br/>
 
-        <label>Email</label><br/>
-        <p:inputText id="email" value="#{clienteConsertoBean.cliente.emailCliente}" /><br/><br/>
+            <label>Sobrenome</label>
+            <p:inputText id="sobrenome" value="#{clienteConsertoBean.cliente.sobrenomeCliente}" /><br/>
 
-        <label>Telefone</label><br/>
-        <p:inputMask id="telefone" value="#{clienteConsertoBean.cliente.telCliente}" mask="(99)99999-9999" /><br/><br/>
+            <label>Email</label>
+            <p:inputText id="email" value="#{clienteConsertoBean.cliente.emailCliente}" /><br/>
 
-        <label>Tipo de conserto</label><br/>
-        <p:inputText id="tipo-conserto" value="#{clienteConsertoBean.conserto.tipoConserto}" /><br/><br/>
+            <label>Telefone</label>
+            <p:inputMask id="telefone" value="#{clienteConsertoBean.cliente.telCliente}" mask="(99)99999-9999" /><br/>
 
-        <label>Data de Atendimento</label><br/>
-        <p:calendar id="data-atendimento" value="#{clienteConsertoBean.conserto.dataAtendimento}" mode="popup"/><br/><br/>
+            <label>Tipo de conserto</label>
+            <p:inputText id="tipo-conserto" value="#{clienteConsertoBean.conserto.tipoConserto}" /><br/>
 
-        <label>Data de Entrega (Prevista)</label><br/>
-        <p:calendar id="data-entrega" value="#{clienteConsertoBean.conserto.dataEntrega}" mode="popup"/><br/><br/>
+            <label>Data de Atendimento</label>
+            <p:calendar id="data-atendimento" value="#{clienteConsertoBean.conserto.dataAtendimento}" mode="popup"/><br/>
 
-        <label>Preço</label><br/>
-        <p:inputNumber id="preco" value="#{clienteConsertoBean.conserto.preco}" /><br/><br/>
+            <label>Data de Entrega (Prevista)</label>
+            <p:calendar id="data-entrega" value="#{clienteConsertoBean.conserto.dataEntrega}" mode="popup"/><br/>
 
-        <label>Observação</label><br/>
-        <p:inputTextarea id="observacao" value="#{clienteConsertoBean.conserto.observacao}" /><br/><br/>
-        <h:commandButton id="comandoAlterar" value="Alterar" action="#{clienteConsertoBean.editarConserto()}" >
-        </h:commandButton>
+            <label>Preço</label>
+            <p:inputNumber id="preco" value="#{clienteConsertoBean.conserto.preco}" /><br/>
+
+            <label>Observação</label>
+            <p:inputTextarea id="observacao" value="#{clienteConsertoBean.conserto.observacao}" /><br/>
+
+            <label>Concluído</label>
+            <p:selectOneRadio id="situacao" value="#{clienteConsertoBean.conserto.situacao}">
+                <f:selectItem itemLabel="sim" itemValue="true"/>
+                <f:selectItem itemLabel="não" itemValue="false"/>
+            </p:selectOneRadio>
+            <p:commandButton type="submit" update="@form" id="comandoAlterar" value="Alterar" action="#{clienteConsertoBean.editarConserto()}" >
+            </p:commandButton>
+        </h:panelGrid>
     </h:form>
 </h:body>
 
