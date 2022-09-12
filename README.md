@@ -12,8 +12,8 @@
 
 ### Foram utilizados os seguintes frameworks para a realização:
 
--[x] Primefaces
--[x] Hibernate
+- [x] Primefaces
+- [x] Hibernate
 
 ### Funcionalidades:
 - [x] Adicionar Consertos 
